@@ -6,6 +6,8 @@
 #include "./math/Matrix.h"
 #include "./dataframe/dataframe.h"
 
+#define FILE_PATH "ABSOLUTE_FILE_PATH"
+
 typedef struct Network{
     int num_layers;
     int * sizes;
@@ -291,13 +293,6 @@ char *create_absolute_path(const char *relative_path) {
 
 // Usage example
 int main(){
-
-    char *executable_path = _pgmptr;
-    printf("Executable path: %s\n", executable_path);
-    create_absolute_path("../../mnist/data.csv");
-
-    //freopen("logs.txt", "w", stdout);
-
     
     generateGaussianArray(65536);
     int sizes[3] = {784,100,10};
@@ -307,9 +302,8 @@ int main(){
     int rows = 10000;
     int cols = 794;
 
-    // "./mnist/data.csv" "D:/Z/Programming/_Univeristy/NSU/ML_C/mnist/data.csv"
-    // "/mnt/d/Z/programming/_univeristy/nsu/ML_C/mnist/data.csv"
-    Dataframe * df = read_csv("D:/Z/Programming/_Univeristy/NSU/ML_C/mnist/data.csv", rows, cols, 784, 10);
+
+    Dataframe * df = read_csv(FILE_PATH, rows, cols, 784, 10);
 
     printf("HERE WE GO\n");
     SGD(network, df->X, df->y, rows, 10, 10, 1);
