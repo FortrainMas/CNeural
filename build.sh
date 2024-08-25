@@ -1,5 +1,6 @@
 mkdir ./build
 mkdir ./build/math
+mkdir ./build/dataframe
 gcc -c Network.c -o ./build/Network.o -I./math -I./dataframe
 gcc -c ./math/Random.c -o ./build/math/Random.o -I./math
 gcc -c ./math/Matrix.c -o ./build/math/Matrix.o -I./math

@@ -1,1 +1,2 @@
-./mnist/data.csv
+mnist/data.csv
+.vscode/
